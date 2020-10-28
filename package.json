@@ -1,0 +1,24 @@
+{
+  "name": "relax",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build:dev": "ts-node --project script/tsconfig.json script/build_dev.ts",
+    "start:dev": "ts-node --project script/tsconfig.json script/start_dev.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "*",
+    "@babel/preset-env": "*",
+    "@babel/preset-typescript": "*",
+    "@types/webpack-dev-server": "*",
+    "babel-loader": "*",
+    "clean-webpack-plugin": "*",
+    "html-webpack-plugin": "*",
+    "ts-node": "*",
+    "typescript": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*",
+    "webpack-merge": "*"
+  }
+}
