@@ -6,11 +6,20 @@
     "build:dev": "ts-node --project script/tsconfig.json script/build_dev.ts",
     "start:dev": "ts-node --project script/tsconfig.json script/start_dev.ts"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "*",
+    "react": "*",
+    "react-dom": "*"
+  },
   "devDependencies": {
     "@babel/core": "*",
     "@babel/preset-env": "*",
+    "@babel/preset-react": "*",
     "@babel/preset-typescript": "*",
+    "@types/lodash": "*",
+    "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
     "@types/webpack-dev-server": "*",
     "babel-loader": "*",
     "clean-webpack-plugin": "*",

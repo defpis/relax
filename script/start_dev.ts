@@ -1,6 +1,6 @@
 import path from "path";
 import { webpack } from "webpack";
-import WebpackDevServer from "webpack-dev-server";
+import WebpackDevServer, { Configuration } from "webpack-dev-server";
 import webpackDevConfig from "./config/webpack.dev.config";
 import {
   DEV_HOST,
@@ -9,15 +9,18 @@ import {
   PUBLIC_PATH,
 } from "./config/constant";
 
-const compiler = webpack(webpackDevConfig);
-
-const server = new WebpackDevServer(compiler, {
-  contentBase: path.resolve(PROJECT_ROOT, "public"),
+const options: Configuration = {
+  contentBase: path.resolve(PROJECT_ROOT, "dist"),
   historyApiFallback: true,
   hot: true,
   open: true,
   publicPath: PUBLIC_PATH,
-});
+  stats: "minimal",
+};
+
+WebpackDevServer.addDevServerEntrypoints(webpackDevConfig, options);
+const compiler = webpack(webpackDevConfig);
+const server = new WebpackDevServer(compiler, options);
 
 server.listen(DEV_PORT, DEV_HOST, (err) => {
   if (err) {

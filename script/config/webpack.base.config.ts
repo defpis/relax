@@ -6,7 +6,7 @@ import { PROJECT_ROOT, PUBLIC_PATH } from "./constant";
 
 const webpackBaseConfig: Configuration = {
   context: PROJECT_ROOT,
-  entry: "./src/index.ts",
+  entry: "./src/index.tsx",
   output: {
     path: path.resolve(PROJECT_ROOT, "dist"),
     filename: "js/[name].[contenthash:8].js",
