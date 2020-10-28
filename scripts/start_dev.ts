@@ -1,19 +1,19 @@
 import path from "path";
 import { webpack } from "webpack";
 import WebpackDevServer, { Configuration } from "webpack-dev-server";
-import webpackDevConfig from "./config/webpack.dev.config";
+import webpackDevConfig from "./configs/webpack.dev.config";
 import {
   DEV_HOST,
   DEV_PORT,
   PROJECT_ROOT,
   PUBLIC_PATH,
-} from "./config/constant";
+} from "./configs/constants";
 
 const options: Configuration = {
   contentBase: path.resolve(PROJECT_ROOT, "dist"),
   historyApiFallback: true,
   hot: true,
-  open: true,
+  open: false,
   publicPath: PUBLIC_PATH,
   stats: "minimal",
 };

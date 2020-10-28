@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "strict": true,
+
+    "jsx": "react",
+
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+
+    "target": "ESNext",
+    "module": "ESNext",
+
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@": [""],
+      "@/*": ["*"]
+    }
+  }
+}

@@ -2,7 +2,7 @@ import path from "path";
 import { Configuration } from "webpack";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import { PROJECT_ROOT, PUBLIC_PATH } from "./constant";
+import { PROJECT_ROOT, PUBLIC_PATH } from "./constants";
 
 const webpackBaseConfig: Configuration = {
   context: PROJECT_ROOT,
@@ -14,6 +14,9 @@ const webpackBaseConfig: Configuration = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".json"],
+    alias: {
+      "@": path.resolve(PROJECT_ROOT, "src"),
+    },
   },
   plugins: [
     new CleanWebpackPlugin(),

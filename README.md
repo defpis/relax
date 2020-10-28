@@ -16,3 +16,6 @@
 - yarn add lodash
 - yarn add --dev @types/lodash
 - yarn add --dev react-refresh @pmmmwh/react-refresh-webpack-plugin type-fest
+- yarn add react-redux redux redux-saga
+- yarn add --dev @types/react-redux
+- yarn add --dev @types/node

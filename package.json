@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "scripts": {
-    "build:dev": "ts-node --project script/tsconfig.json script/build_dev.ts",
-    "start:dev": "ts-node --project script/tsconfig.json script/start_dev.ts"
+    "build:dev": "ts-node --project scripts/tsconfig.json scripts/build_dev.ts",
+    "start:dev": "ts-node --project scripts/tsconfig.json scripts/start_dev.ts"
   },
   "dependencies": {
     "lodash": "*",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "react-redux": "*",
+    "redux": "*",
+    "redux-saga": "*"
   },
   "devDependencies": {
     "@babel/core": "*",
@@ -21,6 +24,7 @@
     "@types/node": "*",
     "@types/react": "*",
     "@types/react-dom": "*",
+    "@types/react-redux": "*",
     "@types/webpack-dev-server": "*",
     "babel-loader": "*",
     "clean-webpack-plugin": "*",
