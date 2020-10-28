@@ -15,15 +15,6 @@ const webpackBaseConfig: Configuration = {
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".json"],
   },
-  module: {
-    rules: [
-      {
-        test: /\.(tsx?|js)$/,
-        use: "babel-loader",
-        exclude: /node_modules/,
-      },
-    ],
-  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
