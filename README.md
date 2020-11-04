@@ -19,3 +19,8 @@
 - yarn add react-redux redux redux-saga
 - yarn add --dev @types/react-redux
 - yarn add --dev @types/node
+- yarn add react-router-dom
+- yarn add --dev @types/react-router-dom
+- yarn add --dev style-loader css-loader sass-loader sass sass-resources-loader
+- yarn add normalize.css
+- yarn add @material-ui/core

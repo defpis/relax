@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Counter: React.FC<{
+export const Counter: React.FC<{
   min?: number;
   max?: number;
 }> = ({ min = 0, max = 10 }) => {
@@ -18,5 +18,3 @@ const Counter: React.FC<{
     </>
   );
 };
-
-export default Counter;
