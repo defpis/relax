@@ -10,7 +10,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint --config .commitlintrc.js -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -40,6 +41,8 @@
     "@babel/preset-env": "*",
     "@babel/preset-react": "*",
     "@babel/preset-typescript": "*",
+    "@commitlint/cli": "*",
+    "@commitlint/config-conventional": "*",
     "@pmmmwh/react-refresh-webpack-plugin": "*",
     "@types/lodash": "*",
     "@types/node": "*",
