@@ -6,7 +6,23 @@
     "build:dev": "ts-node --project scripts/tsconfig.json scripts/build_dev.ts",
     "start:dev": "ts-node --project scripts/tsconfig.json scripts/start_dev.ts",
     "lint:script": "eslint --config .eslintrc.js --ext .tsx,.ts,.js src scripts",
-    "lint:style": "stylelint --config .stylelintrc.js 'src/**/*.scss'"
+    "lint:style": "stylelint --config .stylelintrc.js 'src/**/*.(s)?css'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{tsx,ts,js}": [
+      "eslint --config .eslintrc.js"
+    ],
+    "*.{css,scss}": [
+      "stylelint --config .stylelintrc.js"
+    ],
+    "*.{tsx,ts,js,json,scss,css,html,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@material-ui/core": "*",
@@ -48,6 +64,8 @@
     "eslint-plugin-react-hooks": "*",
     "eslint-plugin-unicorn": "*",
     "html-webpack-plugin": "*",
+    "husky": "*",
+    "lint-staged": "*",
     "prettier": "*",
     "react-refresh": "*",
     "sass": "*",
