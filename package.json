@@ -5,7 +5,8 @@
   "scripts": {
     "build:dev": "ts-node --project scripts/tsconfig.json scripts/build_dev.ts",
     "start:dev": "ts-node --project scripts/tsconfig.json scripts/start_dev.ts",
-    "lint:script": "eslint --config .eslintrc.js --ext .tsx,.ts,.js src scripts"
+    "lint:script": "eslint --config .eslintrc.js --ext .tsx,.ts,.js src scripts",
+    "lint:style": "stylelint --config .stylelintrc.js 'src/**/*.scss'"
   },
   "dependencies": {
     "@material-ui/core": "*",
@@ -53,6 +54,11 @@
     "sass-loader": "*",
     "sass-resources-loader": "*",
     "style-loader": "*",
+    "stylelint": "*",
+    "stylelint-config-prettier": "*",
+    "stylelint-config-standard": "*",
+    "stylelint-order": "*",
+    "stylelint-scss": "*",
     "ts-node": "*",
     "type-fest": "*",
     "typescript": "*",
