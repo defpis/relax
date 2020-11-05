@@ -1,5 +1,5 @@
-import webpack from "webpack";
-import webpackDevConfig from "./configs/webpack.dev.config";
+import webpack from 'webpack';
+import webpackDevConfig from './configs/webpack.dev.config';
 
 const compiler = webpack(webpackDevConfig);
 

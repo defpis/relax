@@ -1,10 +1,11 @@
 {
   "name": "relax",
   "version": "1.0.0",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "build:dev": "ts-node --project scripts/tsconfig.json scripts/build_dev.ts",
-    "start:dev": "ts-node --project scripts/tsconfig.json scripts/start_dev.ts"
+    "start:dev": "ts-node --project scripts/tsconfig.json scripts/start_dev.ts",
+    "lint:script": "eslint --config .eslintrc.js --ext .tsx,.ts,.js src scripts"
   },
   "dependencies": {
     "@material-ui/core": "*",
@@ -30,10 +31,23 @@
     "@types/react-redux": "*",
     "@types/react-router-dom": "*",
     "@types/webpack-dev-server": "*",
+    "@typescript-eslint/eslint-plugin": "*",
+    "@typescript-eslint/parser": "*",
     "babel-loader": "*",
     "clean-webpack-plugin": "*",
     "css-loader": "*",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-config-prettier": "*",
+    "eslint-import-resolver-typescript": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jsx-a11y": "*",
+    "eslint-plugin-promise": "*",
+    "eslint-plugin-react": "*",
+    "eslint-plugin-react-hooks": "*",
+    "eslint-plugin-unicorn": "*",
     "html-webpack-plugin": "*",
+    "prettier": "*",
     "react-refresh": "*",
     "sass": "^*",
     "sass-loader": "*",

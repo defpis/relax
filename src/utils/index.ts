@@ -1,1 +1,1 @@
-export { forEach, forEachRight } from "lodash";
+export { forEach, forEachRight } from 'lodash';

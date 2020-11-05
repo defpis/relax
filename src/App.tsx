@@ -1,11 +1,6 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
-import { Home, Abort } from "./pages";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { Home, Abort } from './pages';
 
 export const App: React.FC<{}> = () => {
   return (

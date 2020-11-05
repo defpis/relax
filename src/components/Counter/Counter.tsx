@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 export const Counter: React.FC<{
   min?: number;
@@ -9,10 +9,10 @@ export const Counter: React.FC<{
   return (
     <>
       <p>{count}</p>
-      <button onClick={() => setCount((s) => (s < max ? s + 1 : s))}>
+      <button type="button" onClick={() => setCount((s) => (s < max ? s + 1 : s))}>
         增加
       </button>
-      <button onClick={() => setCount((s) => (s > min ? s - 1 : 0))}>
+      <button type="button" onClick={() => setCount((s) => (s > min ? s - 1 : 0))}>
         减少
       </button>
     </>

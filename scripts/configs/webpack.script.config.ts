@@ -1,13 +1,13 @@
-import { RuleSetRule } from "webpack";
+import { RuleSetRule } from 'webpack';
 
 export const genScriptRules = ({ refresh }): RuleSetRule[] => {
   return [
     {
       test: /\.tsx?$/,
-      loader: "babel-loader",
+      loader: 'babel-loader',
       exclude: /node_modules/,
       options: {
-        plugins: refresh ? ["react-refresh/babel"] : [],
+        plugins: refresh ? ['react-refresh/babel'] : [],
       },
     },
   ];
