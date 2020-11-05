@@ -1,21 +1,8 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
     node: true,
   },
-  extends: [
-    'airbnb',
-    'airbnb/hooks',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:promise/recommended',
-    'plugin:unicorn/recommended',
-    'prettier',
-    'prettier/react',
-    'prettier/@typescript-eslint',
-  ],
-  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -23,10 +10,13 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['import', '@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y', 'promise', 'unicorn'],
   settings: {
-    react: {
-      version: 'detect',
+    'import/extensions': ['.tsx', '.ts', '.js', '.json'],
+    'import/external-module-folders': ['node_modules'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.tsx', '.ts'],
     },
     'import/resolver': {
       node: {
@@ -36,43 +26,42 @@ module.exports = {
         project: ['./src/tsconfig.json', './scripts/tsconfig.json'],
       },
     },
+    react: {
+      version: 'detect',
+    },
   },
+  extends: [
+    'eslint:recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:promise/recommended',
+    'plugin:unicorn/recommended',
+    'plugin:prettier/recommended',
+    'prettier/@typescript-eslint',
+    'prettier/react',
+    'prettier/unicorn',
+  ],
   rules: {
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        tsx: 'never',
-        ts: 'never',
-        js: 'never',
-        json: 'never',
-      },
-    ],
-    'import/prefer-default-export': ['off'],
-    'import/no-extraneous-dependencies': ['off'],
+    '@typescript-eslint/ban-types': 'warn',
 
-    'react/jsx-filename-extension': ['error', { extensions: ['.tsx', 'ts', '.js'] }],
-
-    '@typescript-eslint/no-use-before-define': ['warn'],
-    '@typescript-eslint/no-empty-function': ['warn'],
-    '@typescript-eslint/ban-types': ['warn'],
-    '@typescript-eslint/explicit-module-boundary-types': ['warn'],
-
-    'unicorn/filename-case': [
+    'unicorn/filename-case': ['error', { cases: { pascalCase: true, snakeCase: true } }],
+    'unicorn/prevent-abbreviations': [
       'error',
       {
-        cases: {
-          kebabCase: true,
-          camelCase: true,
-          snakeCase: true,
-          pascalCase: true,
+        replacements: {
+          dev: {
+            development: false,
+          },
+          err: {
+            error: false,
+          },
         },
       },
     ],
-    'unicorn/prevent-abbreviations': ['off'],
-    'unicorn/prefer-query-selector': ['error'],
-
-    'no-use-before-define': ['off'],
-    'no-console': ['off'],
   },
 };
