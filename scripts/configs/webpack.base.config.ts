@@ -4,6 +4,8 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { PROJECT_ROOT, PUBLIC_PATH } from './constants';
 
+const allExtensions = ['.tsx', '.ts', '.js', '.json'];
+
 const webpackBaseConfig: Configuration = {
   context: PROJECT_ROOT,
   entry: './src/index.tsx',
@@ -13,7 +15,7 @@ const webpackBaseConfig: Configuration = {
     publicPath: PUBLIC_PATH,
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.json'],
+    extensions: allExtensions,
     alias: {
       '@': path.resolve(PROJECT_ROOT, 'src'),
     },

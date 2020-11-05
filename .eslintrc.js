@@ -1,3 +1,5 @@
+const allExtensions = ['.tsx', '.ts', '.js', '.json'];
+
 module.exports = {
   env: {
     browser: true,
@@ -13,14 +15,14 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['import', '@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y', 'promise', 'unicorn'],
   settings: {
-    'import/extensions': ['.tsx', '.ts', '.js', '.json'],
+    'import/extensions': allExtensions,
     'import/external-module-folders': ['node_modules'],
     'import/parsers': {
-      '@typescript-eslint/parser': ['.tsx', '.ts'],
+      '@typescript-eslint/parser': allExtensions,
     },
     'import/resolver': {
       node: {
-        extensions: ['.tsx', '.ts', '.js', '.json'],
+        extensions: allExtensions,
       },
       typescript: {
         project: ['./src/tsconfig.json', './scripts/tsconfig.json'],

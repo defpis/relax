@@ -7,10 +7,6 @@ const resolveStyles = (p: string) => path.resolve(PROJECT_ROOT, 'src/styles', p)
 export const genStyleRules = (): RuleSetRule[] => {
   return [
     {
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader'],
-    },
-    {
       test: /\.scss$/,
       use: [
         'style-loader',
@@ -24,6 +20,10 @@ export const genStyleRules = (): RuleSetRule[] => {
           },
         },
       ],
+    },
+    {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
     },
   ];
 };
