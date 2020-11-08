@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import { Home, Abort } from './pages';
+import { Home, Abort, Panel } from './pages';
 
 export const App: React.FC<{}> = () => {
   return (
@@ -12,8 +12,11 @@ export const App: React.FC<{}> = () => {
         <Route path="/abort">
           <Abort />
         </Route>
+        <Route path="/panel">
+          <Panel />
+        </Route>
         <Route exact path="/">
-          <Redirect to="/home" />
+          <Redirect to="/panel" />
         </Route>
       </Switch>
     </Router>

@@ -13,7 +13,7 @@ export const genStyleRules = (): RuleSetRule[] => {
           loader: 'sass-resources-loader',
           options: {
             hoistUseStatements: true,
-            resources: ['variables/*.scss'].map((path) => resolveRoot('src/styles', path)),
+            resources: ['variables/*.scss', '_mixins.scss'].map((path) => resolveRoot('src/styles', path)),
           },
         },
       ],

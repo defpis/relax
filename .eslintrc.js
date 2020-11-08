@@ -49,7 +49,7 @@ module.exports = {
     'prettier/unicorn',
   ],
   rules: {
-    '@typescript-eslint/ban-types': 'warn',
+    '@typescript-eslint/ban-types': 'off',
 
     'unicorn/filename-case': ['error', { cases: { camelCase: true, pascalCase: true } }],
     'unicorn/prevent-abbreviations': [
@@ -65,5 +65,6 @@ module.exports = {
         },
       },
     ],
+    'unicorn/no-null': 'off',
   },
 };

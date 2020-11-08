@@ -7,5 +7,11 @@ module.exports = {
     'function-name-case': 'lower',
     'no-descending-specificity': null,
     'no-invalid-double-slash-comments': null,
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: ['function', 'if', 'each', 'include', 'mixin'],
+      },
+    ],
   },
 };
