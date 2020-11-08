@@ -1,1 +1,4 @@
-export { forEach, forEachRight } from 'lodash';
+import lodash from 'lodash';
+import mathjs from 'mathjs';
+
+export { lodash, mathjs };

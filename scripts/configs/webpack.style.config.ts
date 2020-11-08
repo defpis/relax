@@ -1,8 +1,5 @@
-import path from 'path';
 import { RuleSetRule } from 'webpack';
-import { PROJECT_ROOT } from './constants';
-
-const resolveStyles = (p: string) => path.resolve(PROJECT_ROOT, 'src/styles', p);
+import { resolveRoot } from '../utils';
 
 export const genStyleRules = (): RuleSetRule[] => {
   return [
@@ -16,7 +13,7 @@ export const genStyleRules = (): RuleSetRule[] => {
           loader: 'sass-resources-loader',
           options: {
             hoistUseStatements: true,
-            resources: ['variables/*.scss'].map((p) => resolveStyles(p)),
+            resources: ['variables/*.scss'].map((path) => resolveRoot('src/styles', path)),
           },
         },
       ],

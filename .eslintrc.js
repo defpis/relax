@@ -51,7 +51,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/ban-types': 'warn',
 
-    'unicorn/filename-case': ['error', { cases: { pascalCase: true, snakeCase: true } }],
+    'unicorn/filename-case': ['error', { cases: { camelCase: true, pascalCase: true } }],
     'unicorn/prevent-abbreviations': [
       'error',
       {

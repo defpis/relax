@@ -1,6 +1,10 @@
 import { RuleSetRule } from 'webpack';
 
-export const genScriptRules = ({ refresh }): RuleSetRule[] => {
+interface IGenScriptRuleOptions {
+  refresh: boolean;
+}
+
+export const genScriptRules = ({ refresh }: IGenScriptRuleOptions): RuleSetRule[] => {
   return [
     {
       test: /\.(tsx?|js)$/,

@@ -1,16 +1,16 @@
-import path from 'path';
 import { webpack } from 'webpack';
 import WebpackDevServer, { Configuration } from 'webpack-dev-server';
-import webpackDevConfig from './configs/webpack.dev.config';
-import { DEV_HOST, DEV_PORT, PROJECT_ROOT, PUBLIC_PATH } from './configs/constants';
+import { webpackDevConfig, DEV_HOST, DEV_PORT, PUBLIC_PATH, devProxy } from './configs';
+import { resolveRoot } from './utils';
 
 const options: Configuration = {
-  contentBase: path.resolve(PROJECT_ROOT, 'dist'),
+  contentBase: resolveRoot('dist'),
   historyApiFallback: true,
   hot: true,
   open: false,
   publicPath: PUBLIC_PATH,
   stats: 'minimal',
+  proxy: devProxy,
 };
 
 WebpackDevServer.addDevServerEntrypoints(webpackDevConfig, options);

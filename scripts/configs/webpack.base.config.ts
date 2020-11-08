@@ -1,32 +1,42 @@
-import path from 'path';
 import { Configuration } from 'webpack';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { PROJECT_ROOT, PUBLIC_PATH } from './constants';
+import { resolveRoot } from '../utils';
 
 const allExtensions = ['.tsx', '.ts', '.js', '.json'];
 
-const webpackBaseConfig: Configuration = {
+export const webpackBaseConfig: Configuration = {
   context: PROJECT_ROOT,
-  entry: './src/index.tsx',
+  entry: [resolveRoot('./src/index.tsx')],
   output: {
-    path: path.resolve(PROJECT_ROOT, 'dist'),
+    path: resolveRoot('dist'),
     filename: 'js/[name].[contenthash:8].js',
     publicPath: PUBLIC_PATH,
   },
   resolve: {
     extensions: allExtensions,
     alias: {
-      '@': path.resolve(PROJECT_ROOT, 'src'),
+      '@': resolveRoot('src'),
     },
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: resolveRoot('./public/index.html'),
       publicPath: PUBLIC_PATH,
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          context: resolveRoot('public'),
+          from: '**/*',
+          to: resolveRoot('dist'),
+          toType: 'dir',
+          filter: (resourcePath) => ![/public\/index.html/].some((excludeReg) => excludeReg.test(resourcePath)),
+        },
+      ],
     }),
   ],
 };
-
-export default webpackBaseConfig;
