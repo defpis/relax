@@ -50,21 +50,12 @@ module.exports = {
   ],
   rules: {
     '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+
+    'promise/no-promise-in-callback': 'off',
 
     'unicorn/filename-case': ['error', { cases: { camelCase: true, pascalCase: true } }],
-    'unicorn/prevent-abbreviations': [
-      'error',
-      {
-        replacements: {
-          dev: {
-            development: false,
-          },
-          err: {
-            error: false,
-          },
-        },
-      },
-    ],
+    'unicorn/prevent-abbreviations': ['error', { replacements: { dev: false, prod: false, err: false } }],
     'unicorn/no-null': 'off',
   },
 };
