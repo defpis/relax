@@ -4,10 +4,11 @@ import { resolveRoot } from '../utils';
 export const genStyleRules = (): RuleSetRule[] => {
   return [
     {
-      test: /\.scss$/,
+      test: /\.s?css$/,
       use: [
         'style-loader',
         'css-loader',
+        'postcss-loader',
         'sass-loader',
         {
           loader: 'sass-resources-loader',
@@ -17,10 +18,6 @@ export const genStyleRules = (): RuleSetRule[] => {
           },
         },
       ],
-    },
-    {
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader'],
     },
   ];
 };

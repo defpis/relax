@@ -1,4 +1,5 @@
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import StylelintWebpackPlugin from 'stylelint-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { merge } from 'webpack-merge';
 import { webpackBaseConfig } from './webpack.base.config';
@@ -15,6 +16,7 @@ export const webpackDevConfig = merge(webpackBaseConfig, {
   },
   plugins: [
     new ReactRefreshWebpackPlugin(),
+    new StylelintWebpackPlugin(),
     new ForkTsCheckerWebpackPlugin({
       eslint: {
         files: resolveRoot('./src/**/*.{tsx,ts,js}'),

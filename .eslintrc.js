@@ -57,5 +57,6 @@ module.exports = {
     'unicorn/filename-case': ['error', { cases: { camelCase: true, pascalCase: true } }],
     'unicorn/prevent-abbreviations': ['error', { replacements: { dev: false, prod: false, err: false } }],
     'unicorn/no-null': 'off',
+    'unicorn/no-reduce': 'off',
   },
 };
