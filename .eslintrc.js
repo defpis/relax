@@ -49,13 +49,20 @@ module.exports = {
     'prettier/unicorn',
   ],
   rules: {
+    'no-debugger': 'warn',
+
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+
+    'react/prop-types': 'off',
 
     'promise/no-promise-in-callback': 'off',
 
     'unicorn/filename-case': ['error', { cases: { camelCase: true, pascalCase: true } }],
-    'unicorn/prevent-abbreviations': ['error', { replacements: { dev: false, prod: false, err: false } }],
+    'unicorn/prevent-abbreviations': [
+      'error',
+      { replacements: { dev: false, prod: false, err: false, props: false, ref: false } },
+    ],
     'unicorn/no-null': 'off',
     'unicorn/no-reduce': 'off',
   },

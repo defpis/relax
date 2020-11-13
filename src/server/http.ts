@@ -6,13 +6,14 @@ export interface IHttpData {
   [key: string]: any;
 }
 
-export interface IHttpFactoryOptions {
+export interface IHttpFactoryConfig {
   baseURL?: string;
   timeout?: number;
   httpErrorCallback?: (err: any) => any;
   businessErrorHandler?: (data: IHttpData) => any;
 }
 
+// http错误处理
 const defaultHttpErrorCallback = (err: any) => {
   const { message, response } = err;
   if (response) {
@@ -27,7 +28,8 @@ const defaultHttpErrorCallback = (err: any) => {
   }
 };
 
-const defaultbusinessErrorHandler = (data: IHttpData) => {
+// 业务错误处理
+const defaultBusinessErrorHandler = (data: IHttpData) => {
   const { code, msg } = data;
   switch (code) {
     case 40000: {
@@ -39,21 +41,25 @@ const defaultbusinessErrorHandler = (data: IHttpData) => {
   }
 };
 
-export const httpFactory = (options: IHttpFactoryOptions | undefined = {}): AxiosInstance => {
-  const {
-    baseURL,
-    timeout,
-    httpErrorCallback = defaultHttpErrorCallback,
-    businessErrorHandler = defaultbusinessErrorHandler,
-  } = options;
-
+export const httpFactory = ({
+  baseURL,
+  timeout,
+  httpErrorCallback = defaultHttpErrorCallback,
+  businessErrorHandler = defaultBusinessErrorHandler,
+}: IHttpFactoryConfig = {}): AxiosInstance => {
   const http = axios.create({
     baseURL: baseURL,
     timeout: timeout,
   });
 
+  // 请求拦截
   http.interceptors.request.use((config) => config, httpErrorCallback);
-  http.interceptors.response.use((response) => businessErrorHandler(response.data), httpErrorCallback);
+
+  // 响应拦截
+  http.interceptors.response.use(
+    (response) => (businessErrorHandler ? businessErrorHandler(response.data) : response.data),
+    httpErrorCallback,
+  );
 
   return http;
 };

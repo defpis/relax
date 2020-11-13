@@ -1,26 +1,27 @@
-import { mathjs, lodash } from '@/utils';
+import { flatten } from 'lodash';
+import { cos, matrix, pi, sin, sqrt } from 'mathjs';
 import React, { useRef, useEffect } from 'react';
 import './Panel.scss';
 
 const genRotateMatrix = (angle: number, aroundAxis: 'x' | 'y' | 'z' = 'z') => {
-  const r = (angle / 180) * mathjs.pi;
-  const s = mathjs.sin(r);
-  const c = mathjs.cos(r);
+  const r = (angle / 180) * pi;
+  const s = sin(r);
+  const c = cos(r);
 
   const matrixMap = {
-    x: mathjs.matrix([
+    x: matrix([
       [1, 0, 0, 0],
       [0, c, -s, 0],
       [0, s, c, 0],
       [0, 0, 0, 1],
     ]),
-    y: mathjs.matrix([
+    y: matrix([
       [c, 0, s, 0],
       [0, 1, 0, 0],
       [-s, 0, c, 0],
       [0, 0, 0, 1],
     ]),
-    z: mathjs.matrix([
+    z: matrix([
       [c, -s, 0, 0],
       [s, c, 0, 0],
       [0, 0, 1, 0],
@@ -28,7 +29,7 @@ const genRotateMatrix = (angle: number, aroundAxis: 'x' | 'y' | 'z' = 'z') => {
     ]),
   };
 
-  return lodash.flatten(matrixMap[aroundAxis].toArray() as number[][]);
+  return flatten(matrixMap[aroundAxis].toArray() as number[][]);
 };
 
 const createShader = (gl: WebGLRenderingContext, sourceCode: string, type: number) => {
@@ -77,7 +78,7 @@ export const Panel: React.FC<{}> = () => {
     gl.linkProgram(program);
     gl.useProgram(program);
 
-    const vertices = new Float32Array([0, mathjs.sqrt(3) / 3, -0.5, -mathjs.sqrt(3) / 6, 0.5, -mathjs.sqrt(3) / 6]);
+    const vertices = new Float32Array([0, sqrt(3) / 3, -0.5, -sqrt(3) / 6, 0.5, -sqrt(3) / 6]);
     const vertexBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);

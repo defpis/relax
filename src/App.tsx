@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import { Home, Abort, Panel } from './pages';
+import { Home, Abort, Panel, Demo } from './pages';
 
 export const App: React.FC<{}> = () => {
   return (
@@ -15,8 +15,11 @@ export const App: React.FC<{}> = () => {
         <Route path="/panel">
           <Panel />
         </Route>
+        <Route path="/demo">
+          <Demo />
+        </Route>
         <Route exact path="/">
-          <Redirect to="/panel" />
+          <Redirect to="/demo" />
         </Route>
       </Switch>
     </Router>
