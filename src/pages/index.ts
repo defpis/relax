@@ -1,4 +1,1 @@
-export { Home } from './Home/Home';
-export { Abort } from './Abort/Abort';
-export { Panel } from './Panel/Panel';
-export { Demo } from './Demo/Demo';
+export { Playground } from './Playground/Playground';

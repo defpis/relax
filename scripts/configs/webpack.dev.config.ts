@@ -7,15 +7,17 @@ import { genStyleRules } from './webpack.style.config';
 import { genScriptRules } from './webpack.script.config';
 import { resolveRoot } from '../utils';
 
+const REFRESH = false;
+
 export const webpackDevConfig = merge(webpackBaseConfig, {
   devtool: 'eval-source-map',
   mode: 'development',
-  entry: [resolveRoot('./src/apis/mocks/index.ts')],
+  entry: [resolveRoot('./src/mocks/index.ts')],
   module: {
-    rules: [...genStyleRules(), ...genScriptRules({ refresh: true })],
+    rules: [...genStyleRules(), ...genScriptRules({ refresh: REFRESH })],
   },
   plugins: [
-    new ReactRefreshWebpackPlugin(),
+    ...(REFRESH ? [new ReactRefreshWebpackPlugin()] : []),
     new StylelintWebpackPlugin(),
     new ForkTsCheckerWebpackPlugin({
       eslint: {

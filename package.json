@@ -26,20 +26,22 @@
     ]
   },
   "dependencies": {
-    "@material-ui/core": "*",
+    "@rematch/core": "^2.0.0-next.10",
     "axios": "*",
     "lodash": "*",
-    "mathjs": "*",
     "normalize.css": "*",
     "react": "*",
     "react-dom": "*",
     "react-redux": "*",
     "react-router-dom": "*",
     "redux": "*",
-    "redux-saga": "*"
+    "rxjs": "*",
+    "pixi.js": "*"
   },
   "devDependencies": {
     "@babel/core": "*",
+    "@babel/plugin-proposal-class-properties": "*",
+    "@babel/plugin-proposal-decorators": "*",
     "@babel/preset-env": "*",
     "@babel/preset-react": "*",
     "@babel/preset-typescript": "*",
@@ -48,7 +50,6 @@
     "@pmmmwh/react-refresh-webpack-plugin": "*",
     "@types/copy-webpack-plugin": "*",
     "@types/lodash": "*",
-    "@types/mathjs": "*",
     "@types/node": "*",
     "@types/react": "*",
     "@types/react-dom": "*",
