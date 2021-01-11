@@ -10,7 +10,7 @@ import { resolveRoot } from '../utils';
 const REFRESH = false;
 
 export const webpackDevConfig = merge(webpackBaseConfig, {
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
   mode: 'development',
   entry: [resolveRoot('./src/mocks/index.ts')],
   module: {

@@ -30,18 +30,19 @@
     "axios": "*",
     "lodash": "*",
     "normalize.css": "*",
+    "pixi.js": "*",
     "react": "*",
     "react-dom": "*",
     "react-redux": "*",
     "react-router-dom": "*",
     "redux": "*",
-    "rxjs": "*",
-    "pixi.js": "*"
+    "rxjs": "*"
   },
   "devDependencies": {
     "@babel/core": "*",
     "@babel/plugin-proposal-class-properties": "*",
     "@babel/plugin-proposal-decorators": "*",
+    "@babel/plugin-transform-runtime": "*",
     "@babel/preset-env": "*",
     "@babel/preset-react": "*",
     "@babel/preset-typescript": "*",

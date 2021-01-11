@@ -63,5 +63,6 @@ module.exports = {
     'unicorn/prevent-abbreviations': 'off',
     'unicorn/no-null': 'off',
     'unicorn/no-reduce': 'off',
+    'unicorn/no-array-reduce': 'off',
   },
 };
